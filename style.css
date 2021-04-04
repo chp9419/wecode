@@ -1,0 +1,496 @@
+/* Reset CSS */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* color */
+  --color-black: #000;
+  --color-white: #fff;
+  --color-light-grey: #dbd6d6;
+  --color-cloud: #b7cdea;
+  --color-sky: rgba(113, 156, 214, 0.5);
+  --color-dark: rgb(77, 76, 76);
+  --animation-changeMode: background-color 1000ms;
+  --boxShadow-white: -1px 9px 33px -15px white;
+  --boxShadow-black: -1px 9px 33px -15px black;
+  --shadow-header-img: drop-shadow(0px 0px 6px white);
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+}
+
+/* common  */
+.intro,
+.information,
+.favorite,
+.inwecode {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--color-sky);
+  transition: var(--animation-changeMode);
+  text-align: center;
+}
+
+.intormation,
+.favorite,
+.inwecode {
+  padding-top: 100px;
+}
+
+.information-title,
+.favorite-title,
+.inwecode-title {
+  display: inline-block;
+  position: relative;
+  font-size: 50px;
+  margin-bottom: 60px;
+}
+
+/* common  dark mode*/
+.intro.dark,
+.information.dark,
+.favorite.dark,
+.inwecode.dark {
+  color: var(--color-white);
+  background-color: var(--color-dark);
+}
+
+.intro.dark .intro-title:after,
+.information.dark .information-title:after,
+.favorite.dark .favorite-title:after,
+.inwecode.dark .inwecode-title:after {
+  background-color: var(--color-white);
+}
+
+/* header */
+
+.header {
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  transition: box-shadow 250ms;
+}
+
+.header:hover {
+  box-shadow: 0px -13px 35px -2px rgb(0 0 0 / 70%);
+}
+
+.header.dark:hover {
+  box-shadow: 0px -13px 35px -2px white;
+}
+
+.header__content {
+  display: flex;
+  margin-bottom: 0;
+  align-items: center;
+  padding: 5px;
+  justify-content: flex-end;
+  background-color: #b7cdea;
+  transition: var(--animation-changeMode);
+}
+
+.header__content li {
+  margin-right: 20px;
+}
+
+.handler {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-family: 'Cairo', sans-serif;
+}
+
+.email-img,
+.github-img,
+.velog-img {
+  display: block;
+  width: 30px;
+  transition: transform 250ms;
+}
+
+.email-img:hover,
+.github-img:hover,
+.velog-img:hover {
+  transform: scale(1.15);
+}
+
+/* header dark mode */
+
+.header.dark .header__content {
+  background-color: var(--color-dark);
+  transition: var(--animation-changeMode);
+}
+
+.header.dark .handler {
+  color: var(--color-white);
+}
+
+.header.dark .email-img,
+.header.dark .github-img,
+.header.dark .velog-img {
+  filter: var(--shadow-header-img);
+}
+
+/* intro */
+
+.intro {
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.intro .col-12 {
+  position: relative;
+}
+
+.intro-title {
+  margin-bottom: 100px;
+  font-size: 60px;
+  display: inline-block;
+  position: relative;
+}
+
+.intro-title:after {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 70px;
+  background-color: var(--color-black);
+  position: absolute;
+  right: -10px;
+  top: 0;
+}
+
+.intro-title.active::after {
+  display: none;
+}
+
+@keyframes blink-cursor {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.intro-desc {
+  font-size: 24px;
+}
+
+.intro-scroll-animation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-scroll-animation .scroll-img {
+  display: block;
+  width: 70px;
+  height: 70px;
+  margin-bottom: 160px;
+  position: relative;
+  animation-name: slide-icon;
+  animation-duration: 1500ms;
+  animation-iteration-count: infinite;
+}
+
+.intro-scroll-animation .intro-desc {
+  animation-name: blink-desc;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes blink-desc {
+  from {
+    opacity: 0.5;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-icon {
+  from {
+    top: 0;
+    opacity: 1;
+  }
+
+  to {
+    top: 100px;
+    opacity: 0;
+  }
+}
+
+/* information */
+
+.information-title {
+  position: relative;
+}
+
+.information-title:after {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 50px;
+  background-color: black;
+  position: absolute;
+  right: -10px;
+  top: 5px;
+}
+
+.information-title.active::after {
+  display: none;
+}
+
+.profile-photo {
+  display: block;
+  width: 350px;
+  border-radius: 5px;
+  margin: 0 auto;
+  box-shadow: var(--boxShadow-black);
+  transition: transform 250ms ease-in;
+}
+
+.profile-photo:hover {
+  transform: scale(1.015);
+}
+
+.profile-contents {
+  text-align: center;
+}
+
+.profile-contents h3 {
+  margin-bottom: 20px;
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+.profile-contents p {
+  padding-bottom: 0;
+}
+
+.information .container .row:last-child .col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.information .container .row:last-child .col:last-child {
+  box-shadow: -1px 9px 33px -15px rgb(0 0 0);
+  border-radius: 5px;
+  transition: transform 250ms ease-in;
+}
+
+.information .container .row:last-child .col:last-child:hover {
+  transform: scale(1.015);
+}
+
+/* information dark mode */
+
+.information.dark .profile-photo,
+.information.dark .container .row:last-child .col:last-child {
+  box-shadow: -1px 9px 33px -15px white;
+}
+
+/* favorite */
+
+.favorite-title:after {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 50px;
+  background-color: black;
+  position: absolute;
+  right: -10px;
+  top: 5px;
+}
+
+.favorite-title.active::after {
+  display: none;
+}
+
+.favorite .container .row:last-child .col-4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.favorite-contents-title {
+  margin-bottom: 40px;
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+.front,
+.back {
+  height: 160px;
+  text-align: center;
+  line-height: 160px;
+  border-radius: 2px;
+}
+
+.front {
+  background-color: var(--color-cloud);
+  transform: translateZ(80px);
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--boxShadow-black);
+  transition: background-color 1000ms;
+}
+
+.back {
+  /* background-color: var(--color-blue); */
+  transform: rotateX(90deg) translateZ(240px);
+}
+
+.flip-btn {
+  width: 160px;
+  margin-bottom: 60px;
+  perspective: 1000px;
+}
+
+.music-1,
+.music-2,
+.music-3,
+.exercise-1,
+.exercise-2,
+.exercise-3,
+.movie-1,
+.movie-2,
+.movie-3 {
+  width: 160px;
+  height: 160px;
+  transform-style: preserve-3d;
+  transition: transform 500ms;
+  font-size: 20px;
+}
+
+.music-1:hover,
+.music-2:hover,
+.music-3:hover,
+.exercise-1:hover,
+.exercise-2:hover,
+.exercise-3:hover,
+.movie-1:hover,
+.movie-2:hover,
+.movie-3:hover {
+  transform: rotateX(-90deg);
+}
+
+.weeknd-img,
+.gallant-img,
+.blackskirt-img,
+.running-img,
+.swimming-img,
+.basketball-img,
+.about-time-img,
+.toystory-img,
+.marvel-img {
+  display: block;
+  width: 160px;
+}
+
+.running-img {
+  height: 160px;
+}
+
+.swimming-img {
+  height: 160px;
+}
+
+.basketball-img {
+  height: 160px;
+}
+
+.toystory-img {
+  height: 160px;
+}
+
+.marvel-img {
+  height: 160px;
+}
+
+/* favorite dark mode */
+.favorite.dark .front {
+  background-color: var(--color-dark);
+  box-shadow: var(--boxShadow-white);
+}
+
+/* inwecode */
+
+.inwecode-title:after {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 50px;
+  background-color: black;
+  position: absolute;
+  right: -10px;
+  top: 5px;
+}
+
+.inwecode-title.active::after {
+  display: none;
+}
+
+.inwecode .container .row:first-child h2 {
+  margin-bottom: 50px;
+}
+
+.inwecode .container .row:last-child h3 {
+  margin-bottom: 100px;
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+.inwecode .container .row:last-child .col:nth-child(2) h3 {
+  margin-bottom: 80px;
+}
+
+.inwecode .container .row .col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fun-img,
+.confidence-img,
+.cool-img {
+  display: block;
+  width: 300px;
+  box-shadow: var(--boxShadow-black);
+  border-radius: 5px;
+  transition: transform 250ms ease-in;
+}
+
+.fun-img:hover,
+.confidence-img:hover,
+.cool-img:hover {
+  transform: scale(1.05);
+}
+
+/* inwecode dark mode */
+
+.inwecode.dark .fun-img,
+.inwecode.dark .confidence-img,
+.inwecode.dark .cool-img {
+  box-shadow: var(--boxShadow-white);
+}
